@@ -1,32 +1,26 @@
-#Classes
+class DockingStation
+  
+  def initialize(bike)
+    @bike = bike
+  end
 
-#Person
-#Bike - is_working?
-#Docking Station - release_bike
+  def release_bike
+    @bike
+  end
+
+end
 
 class Bike
+
   def initialize
     @working = true
   end
-
-  def is_working?
+  
+  def working?
     @working
   end
+  
 end
-
-class DockingStation
-  def release_bike(bike)
-    puts "Bike released"
-    return bike
-  end
-end
-
-class Person
-end
-
-my_bike = Bike.new
-docking_station_1 = DockingStation.new
-docking_station_1.release_bike(my_bike)
 
 
 
