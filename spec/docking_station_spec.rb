@@ -17,7 +17,7 @@ describe DockingStation do
     @docking_station.dock_bike(Bike.new)
     result = @docking_station.release_bike
     expect(result.is_a? Bike).to eq(true)
-    expect(@new_bike.working?).to eq(true)
+    expect(result.working?).to eq(true)
   end
 
   it 'docking station should not release a bike if there are none available' do
@@ -25,9 +25,19 @@ describe DockingStation do
   end
 
   it 'docking station should not add a bike if it is at capacity' do
-    20.times do
+    (@docking_station.DEFAULT_CAPACITY).times do
       @docking_station.dock_bike(Bike.new)
     end
     expect{@docking_station.dock_bike(@new_bike)}.to raise_error("There is no room for this bike")
+  end
+
+  it 'should set default capacity as a parameter' do
+    @docking_station = DockingStation.new(@new_bike, 5)
+    expect(@docking_station.DEFAULT_CAPACITY).to eq(5)
+  end
+
+  it "will update a bike to broken on return" do
+    result = @docking_station.dock_bike(Bike.new, false)
+    expect(result.working?).to eq false
   end
 end
