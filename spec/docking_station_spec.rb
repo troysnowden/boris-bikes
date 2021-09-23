@@ -19,7 +19,6 @@ describe DockingStation do
     expect(result.working?).to eq(true)
   end
 
-<<<<<<< HEAD
   it 'docking station should not release a bike if there are none available' do
     expect{docking_station.release_bike}.to raise_error("There are no bikes to release")
   end
@@ -69,13 +68,4 @@ describe DockingStation do
     expect{docking_station.release_bike}.to raise_error("There are no bikes to release")
   end
 
-=======
-  it 'should allow bikes to be docked in the docking station' do
-    expect(@docking_station.dock_bike(@new_bike)).to eq("Your bike has been stored")
-  end
-
-  it 'should test attr_reader and return instance of the bike' do
-    expect(@docking_station.bike.is_a? Bike).to eq(true)
-  end
->>>>>>> add9a945db94ad9333de9736ec204c4f00e6e95c
 end
