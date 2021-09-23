@@ -1,9 +1,15 @@
 class DockingStation
+<<<<<<< HEAD
 
   attr_reader :DEFAULT_CAPACITY
 
   def initialize(bike, capacity = 20)
     @docked_bikes = []
+=======
+  attr_reader :bike
+
+  def initialize(bike)
+>>>>>>> add9a945db94ad9333de9736ec204c4f00e6e95c
     @bike = bike
     @docked_bikes_total = @docked_bikes.length
     @DEFAULT_CAPACITY = capacity
@@ -66,6 +72,11 @@ class DockingStation
 
   def empty?
     @docked_bikes_total - 1 < 0
+  end
+
+  def dock_bike(bike)
+    @bike = bike
+    return "Your bike has been stored"
   end
 
 end
